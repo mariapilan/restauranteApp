@@ -290,16 +290,15 @@ const styles = StyleSheet.create({
     },
 
     Texto4: {
-        backgroundColor: '#af162a',
+        backgroundColor: 'black',
         padding: 8,
         marginVertical: 8,
         marginHorizontal: 16,
         borderRadius:15,
-        borderColor: 'red',
         borderWidth: 3,
-        fontSize: 20,
+        fontSize: 23,
         color: 'white',
-        paddingHorizontal: 120
+        paddingHorizontal: 110
         
         
         
