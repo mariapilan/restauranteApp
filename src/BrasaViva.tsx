@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StatusBar, Image, StyleSheet, Text, TouchableOpacity, View, ImageBackground } from "react-native";
+import { FlatList, StatusBar, Image, StyleSheet, Text, TouchableOpacity, View, ImageBackground, ScrollView } from "react-native";
 
 interface Cardapio {
     id: string,
@@ -60,31 +60,63 @@ const dados: Cardapio[] = [
         ingredientes: "Picadinho de filé mignon com molho de strogonoff à base de conhaque, creme de leite e com cogumelos paris frescos. Salpicado com batata palha e acompanhado de arroz branco.", images: require('../src/assets/images/strogonoff.jpeg')
     },
 
-    {
-        id: "11", nome: "𝐁𝐑𝐈𝐆𝐀𝐃𝐄𝐈𝐑𝐎 𝐃𝐄 𝐂𝐎𝐋𝐇𝐄𝐑", preco: "𝗥$𝟭𝟱",
-        ingredientes: "Delicioso e cremoso brigadeiro servido na taça. Coberto com bolinhas crocantes.", images: require('../src/assets/images/brigadeiro.jpeg')
-    },
-
-    {
-        id: "12", nome: "𝐁𝐑𝐈𝐆𝐀𝐃𝐄𝐈𝐑𝐎 𝐃𝐄 𝐂𝐎𝐋𝐇𝐄𝐑", preco: "𝗥$𝟭𝟱",
-        ingredientes: "Delicioso e cremoso brigadeiro servido na taça. Coberto com bolinhas crocantes.", images: require('../src/assets/images/brigadeiro.jpeg')
-    },
-
-    {
-        id: "13", nome: "𝐏𝐄𝐓𝐈𝐓 𝐆𝐀𝐓𝐄𝐀𝐔 𝐃𝐄 𝐂𝐇𝐎𝐂𝐎𝐋𝐀𝐓𝐄", preco: "𝗥$𝟮𝟬",
-        ingredientes: "Bolinho quente de chocolate. Acompanha sorvete de creme.", images: require('../src/assets/images/petit.jpeg')
-    },
-
-    {
-        id: "14", nome: "𝐁𝐑𝐈𝐆𝐀𝐃𝐄𝐈𝐑𝐎 𝐃𝐄 𝐂𝐎𝐋𝐇𝐄𝐑", preco: "𝗥$𝟭𝟱",
-        ingredientes: "Delicioso e cremoso brigadeiro servido na taça. Coberto com bolinhas crocantes.", images: require('../src/assets/images/brigadeiro.jpeg')
-    },
-
-    {
-        id: "15", nome: "𝐏𝐄𝐓𝐈𝐓 𝐆𝐀𝐓𝐄𝐀𝐔 𝐃𝐄 𝐂𝐇𝐎𝐂𝐎𝐋𝐀𝐓𝐄", preco: "𝗥$𝟮𝟬",
-        ingredientes: "Bolinho quente de chocolate. Acompanha sorvete de creme.", images: require('../src/assets/images/petit.jpeg')
-    },
+    
 ];
+
+interface Acompanhamentos {
+    id: string,
+    nome: string,
+    preco: string,
+    images: any
+}
+const dados1: Acompanhamentos[] = [
+{
+    id:"1", nome: "Á𝐠𝐮𝐚", preco: "𝗥$𝟮,𝟱𝟬", images: require('./assets/images/aguasemgas1.png')
+
+},
+{
+    id:"2", nome: "Á𝐠𝐮𝐚 𝐜𝐨𝐦 𝐠á𝐬", preco: "𝗥$𝟯,𝟬𝟬", images: require('./assets/images/aguagas.png')
+
+},
+{
+    id:"3", nome: "𝐂𝐨𝐜𝐚 𝐋𝐚𝐭𝐚", preco: "𝗥$𝟱,𝟬𝟬", images: require('./assets/images/coca.png')
+
+},
+{
+    id:"4", nome: "𝐂𝐨𝐜𝐚 𝟐𝐋", preco: "𝗥$𝟭𝟭,𝟬𝟬", images: require('./assets/images/coca2.png')
+
+},
+{
+    id:"5", nome: "𝐆𝐮𝐚𝐫𝐚𝐧á 𝐋𝐚𝐭𝐚", preco: "𝗥$𝟯,𝟱𝟬", images: require('./assets/images/guarana1.png')
+
+},
+{
+    id:"6", nome: "𝐆𝐮𝐚𝐫𝐚𝐧á 𝟐𝐋", preco: "𝗥$𝟴,𝟬𝟬", images: require('./assets/images/guara.png')
+
+}
+]
+interface Sobremesas {
+    id: string,
+    nome: string,
+    preco: string,
+    ingredientes: string,
+    images: any
+}
+const dados2: Sobremesas[] = [
+    {
+        id:"1", nome: "𝐁𝐑𝐈𝐆𝐀𝐃𝐄𝐈𝐑𝐎 𝐃𝐄 𝐂𝐎𝐋𝐇𝐄𝐑", preco: "𝗥$𝟭𝟱", ingredientes: 
+        "Delicioso e cremoso brigadeiro servido na taça. Coberto com bolinhas crocantes.", images: require ('../src/assets/images/brigadeiro.jpeg')
+    },
+
+    {
+        id: "2", nome: "𝐏𝐄𝐓𝐈𝐓 𝐆𝐀𝐓𝐄𝐀𝐔 𝐃𝐄 𝐂𝐇𝐎𝐂𝐎𝐋𝐀𝐓𝐄", preco: "𝗥$𝟮𝟬",
+        ingredientes: "Bolinho quente de chocolate. Acompanha sorvete de creme.", images: require('../src/assets/images/petit.jpeg')
+    },
+    {
+        id: "3", nome: "𝐁𝐫𝐨𝐰𝐧𝐢𝐞 𝐝𝐞 𝐂𝐡𝐨𝐜𝐨𝐥𝐚𝐭𝐞 𝐈𝐧𝐝𝐢𝐯𝐢𝐝𝐮𝐚𝐥", preco: "𝗥$𝟮𝟬",
+        ingredientes: "Bolinho quente de chocolate. Acompanha sorvete de creme.", images: require('../src/assets/images/petit.jpeg')
+    }
+]
 
 const rendercardapio = ({ item }: { item: Cardapio }) => (
     <TouchableOpacity style={styles.item}>
@@ -92,6 +124,23 @@ const rendercardapio = ({ item }: { item: Cardapio }) => (
         <Text style={styles.Texto2}>{item.preco}</Text>
         <Text style={styles.Texto3}>{item.ingredientes}</Text>
         <Image source={item.images} style={styles.images}  />
+    </TouchableOpacity>
+);
+
+const renderacompanhamentos = ({ item }: { item: Acompanhamentos }) => (
+    <TouchableOpacity style={styles.item}>
+        <Text style={styles.Texto1}>{item.nome}</Text>
+        <Text style={styles.Texto2}>{item.preco}</Text>
+        <Image source={item.images} style={styles.images1}  />
+    </TouchableOpacity>
+);
+
+const rendersobremesas = ({ item }: { item: Sobremesas }) => (
+    <TouchableOpacity style={styles.item}>
+        <Text style={styles.Texto1}>{item.nome}</Text>
+        <Text style={styles.Texto2}>{item.preco}</Text>
+        <Text style={styles.Texto3}>{item.ingredientes}</Text>
+        <Image source={item.images} style={styles.images2}  />
     </TouchableOpacity>
 );
  
@@ -106,15 +155,31 @@ function BrasaViva(): React.JSX.Element {
                 <Text style={styles.headerText}>𝔹ℝ𝔸𝕊𝔸 🔥 𝕍𝕀𝕍𝔸 </Text>
                 <Text style={styles.text}>ᴏ ᴍᴇʟʜᴏʀ ʀᴇꜱᴛᴀᴜʀᴀɴᴛᴇ ᴅᴀ ꜱᴜᴀ ʀᴇɢɪãᴏ!</Text>
             </View>
-            <View style={styles.card}>
-                <Text style={styles.Texto4}>ᴄᴀʀᴅᴀᴘɪᴏ</Text>
-            </View>
+            
+
+            <ScrollView>
+            <Text style={styles.Texto4}>𝐂𝐀𝐑𝐃𝐀𝐏𝐈𝐎</Text>
             <FlatList
                 showsVerticalScrollIndicator={false}
                 data={dados}
                 renderItem={rendercardapio}
                 keyExtractor={(item) => item.id}
             />
+            <Text style={styles.Texto6}>𝐒𝐎𝐁𝐑𝐄𝐌𝐄𝐒𝐀𝐒</Text>
+            <FlatList
+                showsVerticalScrollIndicator={false}
+                data={dados2}
+                renderItem={rendersobremesas}
+                keyExtractor={(item) => item.id}
+            />
+            <Text style={styles.Texto5}>𝐁𝐄𝐁𝐈𝐃𝐀𝐒</Text>
+            <FlatList
+                horizontal={true}
+                data={dados1}
+                renderItem={renderacompanhamentos}
+                keyExtractor={(item) => item.id}
+            />
+            </ScrollView>
             </ImageBackground>
             <View style={styles.footer}>
             <TouchableOpacity>
@@ -164,7 +229,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
         borderRadius:15,
         borderColor: 'red',
-        borderWidth: 3
+        borderWidth: 3,
     },
     header: {
         backgroundColor: '#800000',
@@ -181,15 +246,12 @@ const styles = StyleSheet.create({
     },
     footer: {
         borderTopWidth: 0.2,
-        backgroundColor: '#80000',
+        backgroundColor: 'black',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
         paddingVertical: 10,
-        
-        
-
-    },
+        },
     footerIcon: {
         width: 30,
         height: 30,
@@ -226,21 +288,52 @@ const styles = StyleSheet.create({
         fontSize: 13,
         color: 'white'
     },
-    card: {
-        backgroundColor: 'black',
-        padding: 1,
-        marginVertical:5,
-        marginHorizontal: 1,
-        borderRadius:5,
+
+    Texto4: {
+        backgroundColor: '#af162a',
+        padding: 8,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius:15,
+        borderColor: 'red',
         borderWidth: 3,
+        fontSize: 20,
+        color: 'white',
+        paddingHorizontal: 120
+        
+        
+        
+    }, 
+    images1: {
+        width: 100,
+        height: 170
+    },
+    Texto5: {
+        backgroundColor: 'black',
+        padding: 8,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius:15,
+        borderWidth: 3,
+        fontSize: 30,
+        color: 'white',
+        paddingHorizontal: 110
         
     },
-    Texto4: {
-        fontSize: 15,
+    images2: {
+        width: 200,
+        height: 200
+    },
+    Texto6: {
+        backgroundColor: 'black',
+        padding: 8,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius:15,
+        borderWidth: 3,
+        fontSize: 30,
         color: 'white',
-        marginVertical: -13,
-        
-        
+        paddingHorizontal: 70
     }
     
 })
