@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StatusBar, Image, StyleSheet, Text, TouchableOpacity, View, ImageBackground, ScrollView } from "react-native";
+import { FlatList, StatusBar, Image, StyleSheet, Text, TouchableOpacity, View, ImageBackground, ScrollView, TextInput } from "react-native";
 
 interface Cardapio {
     id: string,
@@ -124,6 +124,12 @@ const rendercardapio = ({ item }: { item: Cardapio }) => (
         <Text style={styles.Texto2}>{item.preco}</Text>
         <Text style={styles.Texto3}>{item.ingredientes}</Text>
         <Image source={item.images} style={styles.images}  />
+        <TouchableOpacity>
+            <Image source={require('./assets/images/adicionar.png')} style={styles.image3}></Image>
+        </TouchableOpacity>
+        <TouchableOpacity>
+            <Image source={require('./assets/images/subtracao.png')} style={styles.image4}></Image>
+        </TouchableOpacity>
     </TouchableOpacity>
 );
 
@@ -132,6 +138,12 @@ const renderacompanhamentos = ({ item }: { item: Acompanhamentos }) => (
         <Text style={styles.Texto1}>{item.nome}</Text>
         <Text style={styles.Texto2}>{item.preco}</Text>
         <Image source={item.images} style={styles.images1}  />
+        <TouchableOpacity>
+            <Image source={require('./assets/images/adicionar.png')} style={styles.image3}></Image>
+        </TouchableOpacity>
+        <TouchableOpacity>
+            <Image source={require('./assets/images/subtracao.png')} style={styles.image4}></Image>
+        </TouchableOpacity>
     </TouchableOpacity>
 );
 
@@ -141,6 +153,12 @@ const rendersobremesas = ({ item }: { item: Sobremesas }) => (
         <Text style={styles.Texto2}>{item.preco}</Text>
         <Text style={styles.Texto3}>{item.ingredientes}</Text>
         <Image source={item.images} style={styles.images2}  />
+        <TouchableOpacity>
+            <Image source={require('./assets/images/adicionar.png')} style={styles.image3}></Image>
+        </TouchableOpacity>
+        <TouchableOpacity>
+            <Image source={require('./assets/images/subtracao.png')} style={styles.image4}></Image>
+        </TouchableOpacity>
     </TouchableOpacity>
 );
  
@@ -155,9 +173,16 @@ function BrasaViva(): React.JSX.Element {
                 <Text style={styles.headerText}>𝔹ℝ𝔸𝕊𝔸 🔥 𝕍𝕀𝕍𝔸 </Text>
                 <Text style={styles.text}>ᴏ ᴍᴇʟʜᴏʀ ʀᴇꜱᴛᴀᴜʀᴀɴᴛᴇ ᴅᴀ ꜱᴜᴀ ʀᴇɢɪãᴏ!</Text>
             </View>
-            
 
-            <ScrollView>
+            <ScrollView style={{backgroundColor: 'black'}}>
+            <View style={styles.alinhamentopesquisa}>
+
+           <TextInput style={styles.input} placeholder="Pesquisar"
+           placeholderTextColor={"black"}>
+
+            </TextInput>
+            </View>
+                
             <Text style={styles.Texto4}>𝐂𝐀𝐑𝐃𝐀𝐏𝐈𝐎</Text>
             <FlatList
                 showsVerticalScrollIndicator={false}
@@ -220,6 +245,7 @@ function BrasaViva(): React.JSX.Element {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor:'black'
         
     },
     item: {
@@ -333,6 +359,34 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: 'white',
         paddingHorizontal: 70
+    },
+    alinhamentopesquisa:{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: "90%",
+        paddingHorizontal: 50,
+        marginTop: 13,
+        backgroundColor: 'black'
+    },
+    input: {
+        backgroundColor: 'white',
+        height:36,
+        width:300,
+        marginBottom:20,
+        borderRadius:25,
+        borderWidth:1,
+        borderColor:'white',
+    },
+    image3: {
+        width:30,
+        height:30,
+        marginTop:8
+    },
+    image4:{
+        height:30,
+        width:30,
+        marginLeft: 35,
+        marginTop: -30
     }
     
 })
